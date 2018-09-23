@@ -32,19 +32,22 @@ namespace SkeletonDotNetCore.WebAPI
             services.AddAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddScoped<ISkeletonRepository, SkeletonRepository>();
+            services.AddTransient<ISeeder, Seeder>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ISeeder seeder)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                seeder.DevelopmentSeed().Wait();
             }
             else
             {
                 app.UseHsts();
                 app.UseHttpsRedirection();
+                seeder.ProductionSeed().Wait();
             }
             
             app.UseMvc();
