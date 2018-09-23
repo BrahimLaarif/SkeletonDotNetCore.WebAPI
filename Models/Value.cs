@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace SkeletonDotNetCore.WebAPI.Models
@@ -8,5 +9,12 @@ namespace SkeletonDotNetCore.WebAPI.Models
 
         [Required]
         public string Name { get; set; }
+
+        public DateTime DateCreated { get; set; }
+
+        public Value()
+        {
+            DateCreated = DateTime.Now;
+        }
     }
 }
