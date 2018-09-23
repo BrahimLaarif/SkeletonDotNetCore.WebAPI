@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SkeletonDotNetCore.WebAPI.Data;
 
 namespace SkeletonDotNetCore.WebAPI.Controllers
 {
@@ -10,24 +11,41 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly ISkeletonRepository _repo;
+
+        public ValuesController(ISkeletonRepository repo)
+        {
+            _repo = repo;
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<IActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            var values = await _repo.GetValues();
+
+            return Ok(values);
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return "value";
+            var value = await _repo.GetValue(id);
+
+            if (value == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(value);
         }
 
         // POST api/values
         [HttpPost]
         public void Post([FromBody] string value)
         {
+            
         }
 
         // PUT api/values/5
