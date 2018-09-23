@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SkeletonDotNetCore.WebAPI.Data;
 
@@ -12,10 +13,12 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
     public class ValuesController : ControllerBase
     {
         private readonly ISkeletonRepository _repo;
+        private readonly IMapper _mapper;
 
-        public ValuesController(ISkeletonRepository repo)
+        public ValuesController(ISkeletonRepository repo, IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
         }
 
         // GET api/values
@@ -45,7 +48,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
-            
+
         }
 
         // PUT api/values/5
