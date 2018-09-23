@@ -1,4 +1,4 @@
-# ASP.NET Core Skeleton
+# ASP.NET Core Web API Skeleton
 
 #### A simple ASP.NET Core Web API application with:
 - Entity Framework Core
