@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SkeletonDotNetCore.WebAPI.Models;
 
 namespace SkeletonDotNetCore.WebAPI.Data
 {
@@ -8,5 +9,7 @@ namespace SkeletonDotNetCore.WebAPI.Data
             : base(options)
         {
         }
+
+        public DbSet<Value> Values { get; set; }
     }
 }
