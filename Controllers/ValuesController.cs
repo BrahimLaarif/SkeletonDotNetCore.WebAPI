@@ -33,7 +33,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = nameof(Get))]
         public async Task<IActionResult> Get(int id)
         {
             var value = await _repo.GetValue(id);
