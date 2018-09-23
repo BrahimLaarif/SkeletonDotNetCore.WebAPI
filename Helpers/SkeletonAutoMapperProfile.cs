@@ -9,6 +9,7 @@ namespace SkeletonDotNetCore.WebAPI.Helpers
         public SkeletonAutoMapperProfile()
         {
             CreateMap<AddValueDTO, Value>();
+            CreateMap<EditValueDTO, Value>();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace SkeletonDotNetCore.WebAPI.Data
         void Add<T>(T entity) where T: class;
         void Update<T>(T entity) where T: class;
         void Remove<T>(T entity) where T: class;
-        Task<bool> SaveAll();
+        Task<int> SaveAll();
         Task<List<Value>> GetValues();
         Task<Value> GetValue(int id);
     }

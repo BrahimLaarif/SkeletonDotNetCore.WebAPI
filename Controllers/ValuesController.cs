@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SkeletonDotNetCore.WebAPI.Data;
+using SkeletonDotNetCore.WebAPI.DTOs;
+using SkeletonDotNetCore.WebAPI.Models;
 
 namespace SkeletonDotNetCore.WebAPI.Controllers
 {
@@ -46,21 +48,50 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] AddValueDTO addValueDTO)
         {
+            var value = _mapper.Map<Value>(addValueDTO);
 
+            _repo.Add(value);
+            await _repo.SaveAll();
+
+            return CreatedAtRoute(nameof(Get), new { id = value.Id }, value);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(int id, [FromBody] EditValueDTO editValueDTO)
         {
+            var value = await _repo.GetValue(id);
+
+            if (value == null)
+            {
+                return NotFound();
+            }
+
+            _mapper.Map<EditValueDTO, Value>(editValueDTO, value);
+
+            _repo.Update(value);
+            await _repo.SaveAll();
+
+            return NoContent();
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            var value = await _repo.GetValue(id);
+
+            if (value == null)
+            {
+                return NotFound();
+            }
+
+            _repo.Remove(value);
+            await _repo.SaveAll();
+
+            return NoContent();
         }
     }
 }

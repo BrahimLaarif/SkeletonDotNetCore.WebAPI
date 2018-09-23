@@ -29,9 +29,9 @@ namespace SkeletonDotNetCore.WebAPI.Data
             _context.Update(entity);
         }
 
-        public async Task<bool> SaveAll()
+        public async Task<int> SaveAll()
         {
-            return await _context.SaveChangesAsync() > 0;
+            return await _context.SaveChangesAsync();
         }
 
         public async Task<Value> GetValue(int id)
