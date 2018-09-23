@@ -29,7 +29,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
         {
             var values = await _repo.GetValues();
 
-            return Ok(values);
+            return Ok(_mapper.Map<List<ViewValueDTO>>(values));
         }
 
         // GET api/values/5
@@ -43,7 +43,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
                 return NotFound();
             }
 
-            return Ok(value);
+            return Ok(_mapper.Map<ViewValueDTO>(value));
         }
 
         // POST api/values
@@ -55,7 +55,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
             _repo.Add(value);
             await _repo.SaveAll();
 
-            return CreatedAtRoute(nameof(Get), new { id = value.Id }, value);
+            return CreatedAtRoute(nameof(Get), new { id = value.Id }, _mapper.Map<ViewValueDTO>(value));
         }
 
         // PUT api/values/5

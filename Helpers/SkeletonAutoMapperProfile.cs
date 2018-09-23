@@ -10,6 +10,10 @@ namespace SkeletonDotNetCore.WebAPI.Helpers
         {
             CreateMap<AddValueDTO, Value>();
             CreateMap<EditValueDTO, Value>();
+            CreateMap<Value, ViewValueDTO>()
+                .ForMember(dest => dest.Timestamp, opt => {
+                    opt.MapFrom(src => src.DateCreated.CalculateTimestamp());
+                });
         }
     }
 }
