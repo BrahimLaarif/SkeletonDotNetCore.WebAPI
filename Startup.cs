@@ -29,8 +29,9 @@ namespace SkeletonDotNetCore.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<SkeletonDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddCors();
+            services.AddAutoMapper();
             services.AddScoped<ISkeletonRepository, SkeletonRepository>();
             services.AddTransient<ISeeder, Seeder>();
         }
@@ -50,6 +51,7 @@ namespace SkeletonDotNetCore.WebAPI
                 seeder.ProductionSeed().Wait();
             }
             
+            app.UseCors(config => config.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseMvc();
         }
     }
