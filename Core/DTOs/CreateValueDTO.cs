@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace SkeletonDotNetCore.WebAPI.DTOs
+namespace SkeletonDotNetCore.WebAPI.Core.DTOs
 {
     public class CreateValueDTO
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace SkeletonDotNetCore.WebAPI.DTOs
+namespace SkeletonDotNetCore.WebAPI.Core.DTOs
 {
     public class ValueDTO
     {

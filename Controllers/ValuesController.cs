@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SkeletonDotNetCore.WebAPI.Core;
+using SkeletonDotNetCore.WebAPI.Core.DTOs;
 using SkeletonDotNetCore.WebAPI.Core.Models;
-using SkeletonDotNetCore.WebAPI.DTOs;
 
 namespace SkeletonDotNetCore.WebAPI.Controllers
 {
