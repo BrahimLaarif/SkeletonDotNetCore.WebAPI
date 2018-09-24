@@ -5,11 +5,15 @@ namespace SkeletonDotNetCore.WebAPI.Data
 {
     public class SkeletonDbContext : DbContext
     {
+        public DbSet<Value> Values { get; set; }
+
         public SkeletonDbContext(DbContextOptions<SkeletonDbContext> options)
             : base(options)
         {
         }
 
-        public DbSet<Value> Values { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+        }
     }
 }
