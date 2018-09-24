@@ -31,8 +31,8 @@ A simple ASP.NET Core Web API application with:
     Now the application is listening on http://localhost:5000
 
 ## Endpoint List
-- GET /api/values
-- GET /api/values/:id
-- POST /api/values
-- PUT /api/values/:id
-- DELETE /api/values/:id
+- **GET** /api/values
+- **GET** /api/values/:id
+- **POST** /api/values
+- **PUT** /api/values/:id
+- **DELETE** /api/values/:id
