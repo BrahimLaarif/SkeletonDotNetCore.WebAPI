@@ -1,8 +1,8 @@
 using System;
 
-namespace SkeletonDotNetCore.WebAPI.Core.DTOs
+namespace SkeletonDotNetCore.WebAPI.Core.Resources
 {
-    public class ValueDTO
+    public class ValueResource
     {
         public int Id { get; set; }
         public string Name { get; set; }

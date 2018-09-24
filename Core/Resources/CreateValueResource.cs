@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace SkeletonDotNetCore.WebAPI.Core.DTOs
+namespace SkeletonDotNetCore.WebAPI.Core.Resources
 {
-    public class UpdateValueDTO
+    public class CreateValueResource
     {
         [Required]
         public string Name { get; set; }

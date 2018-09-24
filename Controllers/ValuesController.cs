@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SkeletonDotNetCore.WebAPI.Core;
-using SkeletonDotNetCore.WebAPI.Core.DTOs;
+using SkeletonDotNetCore.WebAPI.Core.Resources;
 using SkeletonDotNetCore.WebAPI.Core.Models;
 
 namespace SkeletonDotNetCore.WebAPI.Controllers
@@ -31,7 +31,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
         {
             var values = await _valueRepository.GetValues();
 
-            return Ok(_mapper.Map<List<ValueDTO>>(values));
+            return Ok(_mapper.Map<List<ValueResource>>(values));
         }
 
         // GET api/values/5
@@ -45,24 +45,24 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
                 return NotFound();
             }
 
-            return Ok(_mapper.Map<ValueDTO>(value));
+            return Ok(_mapper.Map<ValueResource>(value));
         }
 
         // POST api/values
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateValueDTO createValueDTO)
+        public async Task<IActionResult> Post([FromBody] CreateValueResource createValueResource)
         {
-            var value = _mapper.Map<Value>(createValueDTO);
+            var value = _mapper.Map<Value>(createValueResource);
 
             _valueRepository.Add(value);
             await _unitOfWork.CompleteAsync();
 
-            return CreatedAtRoute(nameof(Get), new { id = value.Id }, _mapper.Map<ValueDTO>(value));
+            return CreatedAtRoute(nameof(Get), new { id = value.Id }, _mapper.Map<ValueResource>(value));
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] UpdateValueDTO updateValueDTO)
+        public async Task<IActionResult> Put(int id, [FromBody] UpdateValueResource updateValueResource)
         {
             var value = await _valueRepository.GetValue(id);
 
@@ -71,7 +71,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
                 return NotFound();
             }
 
-            _mapper.Map<UpdateValueDTO, Value>(updateValueDTO, value);
+            _mapper.Map<UpdateValueResource, Value>(updateValueResource, value);
 
             _valueRepository.Update(value);
             await _unitOfWork.CompleteAsync();

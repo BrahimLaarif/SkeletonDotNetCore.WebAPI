@@ -10,7 +10,6 @@ namespace SkeletonDotNetCore.WebAPI.Core
         void Update(Value value);
         void Remove(Value value);
 
-        Task<int> CountValues();
         Task<List<Value>> GetValues();
         Task<Value> GetValue(int id);
     }

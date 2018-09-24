@@ -1,5 +1,5 @@
 using AutoMapper;
-using SkeletonDotNetCore.WebAPI.Core.DTOs;
+using SkeletonDotNetCore.WebAPI.Core.Resources;
 using SkeletonDotNetCore.WebAPI.Core.Models;
 using SkeletonDotNetCore.WebAPI.Extensions;
 
@@ -9,9 +9,9 @@ namespace SkeletonDotNetCore.WebAPI.Mapping
     {
         public AutoMapperProfile()
         {
-            CreateMap<CreateValueDTO, Value>();
-            CreateMap<UpdateValueDTO, Value>();
-            CreateMap<Value, ValueDTO>()
+            CreateMap<CreateValueResource, Value>();
+            CreateMap<UpdateValueResource, Value>();
+            CreateMap<Value, ValueResource>()
                 .ForMember(dest => dest.Timestamp, opt => {
                     opt.MapFrom(src => src.DateCreated.Timestamp());
                 });

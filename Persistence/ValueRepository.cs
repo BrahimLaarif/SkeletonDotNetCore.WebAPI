@@ -30,11 +30,6 @@ namespace SkeletonDotNetCore.WebAPI.Persistence
             _context.Values.Remove(value);
         }
 
-        public async Task<int> CountValues()
-        {
-            return await _context.Values.CountAsync();
-        }
-
         public async Task<Value> GetValue(int id)
         {
             return await _context.Values.FindAsync(id);
