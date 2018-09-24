@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SkeletonDotNetCore.WebAPI.Models;
 
-namespace SkeletonDotNetCore.WebAPI.Data
+namespace SkeletonDotNetCore.WebAPI.Data.Repositories
 {
     public class ValueRepository : IValueRepository
     {

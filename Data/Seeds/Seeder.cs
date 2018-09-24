@@ -2,9 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using SkeletonDotNetCore.WebAPI.Data.Repositories;
 using SkeletonDotNetCore.WebAPI.Models;
 
-namespace SkeletonDotNetCore.WebAPI.Data
+namespace SkeletonDotNetCore.WebAPI.Data.Seeds
 {
     public class Seeder : ISeeder
     {
@@ -31,7 +32,7 @@ namespace SkeletonDotNetCore.WebAPI.Data
         {
             if (await _valueRepository.CountValues() == 0)
             {
-                var valuesJsonData = System.IO.File.ReadAllText("Data/MockData/ValueData.json");
+                var valuesJsonData = System.IO.File.ReadAllText("Data/Seeds/MockData/ValueData.json");
 
                 var values = JsonConvert.DeserializeObject<List<Value>>(valuesJsonData);
 

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SkeletonDotNetCore.WebAPI.Data;
+using SkeletonDotNetCore.WebAPI.Data.Repositories;
 using SkeletonDotNetCore.WebAPI.DTOs;
 using SkeletonDotNetCore.WebAPI.Models;
 

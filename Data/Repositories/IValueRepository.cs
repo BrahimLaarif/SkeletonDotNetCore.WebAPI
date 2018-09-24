@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using SkeletonDotNetCore.WebAPI.Models;
 
-namespace SkeletonDotNetCore.WebAPI.Data
+namespace SkeletonDotNetCore.WebAPI.Data.Repositories
 {
     public interface IValueRepository
     {
