@@ -8,9 +8,9 @@ namespace SkeletonDotNetCore.WebAPI.Helpers
     {
         public SkeletonAutoMapperProfile()
         {
-            CreateMap<AddValueDTO, Value>();
-            CreateMap<EditValueDTO, Value>();
-            CreateMap<Value, ViewValueDTO>()
+            CreateMap<CreateValueDTO, Value>();
+            CreateMap<UpdateValueDTO, Value>();
+            CreateMap<Value, ValueDTO>()
                 .ForMember(dest => dest.Timestamp, opt => {
                     opt.MapFrom(src => src.DateCreated.CalculateTimestamp());
                 });

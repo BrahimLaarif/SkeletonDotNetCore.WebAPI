@@ -2,7 +2,7 @@ using System;
 
 namespace SkeletonDotNetCore.WebAPI.DTOs
 {
-    public class ViewValueDTO
+    public class ValueDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }

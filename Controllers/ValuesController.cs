@@ -29,7 +29,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
         {
             var values = await _repo.GetValues();
 
-            return Ok(_mapper.Map<List<ViewValueDTO>>(values));
+            return Ok(_mapper.Map<List<ValueDTO>>(values));
         }
 
         // GET api/values/5
@@ -43,24 +43,24 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
                 return NotFound();
             }
 
-            return Ok(_mapper.Map<ViewValueDTO>(value));
+            return Ok(_mapper.Map<ValueDTO>(value));
         }
 
         // POST api/values
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] AddValueDTO addValueDTO)
+        public async Task<IActionResult> Post([FromBody] CreateValueDTO createValueDTO)
         {
-            var value = _mapper.Map<Value>(addValueDTO);
+            var value = _mapper.Map<Value>(createValueDTO);
 
             _repo.Add(value);
             await _repo.SaveAll();
 
-            return CreatedAtRoute(nameof(Get), new { id = value.Id }, _mapper.Map<ViewValueDTO>(value));
+            return CreatedAtRoute(nameof(Get), new { id = value.Id }, _mapper.Map<ValueDTO>(value));
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] EditValueDTO editValueDTO)
+        public async Task<IActionResult> Put(int id, [FromBody] UpdateValueDTO updateValueDTO)
         {
             var value = await _repo.GetValue(id);
 
@@ -69,7 +69,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
                 return NotFound();
             }
 
-            _mapper.Map<EditValueDTO, Value>(editValueDTO, value);
+            _mapper.Map<UpdateValueDTO, Value>(updateValueDTO, value);
 
             _repo.Update(value);
             await _repo.SaveAll();
