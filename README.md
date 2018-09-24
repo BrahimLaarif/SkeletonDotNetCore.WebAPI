@@ -16,7 +16,7 @@ A simple ASP.NET Core Web API application with:
     git clone https://github.com/BrahimLaarif/SkeletonDotNetCore.WebAPI.git
     cd SkeletonDotNetCore.WebAPI
     ```
-3. Build the project and all of its dependencies.
+3. Build the application and all of its dependencies.
     ```bash
     dotnet build
     ```
