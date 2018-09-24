@@ -4,9 +4,9 @@ using SkeletonDotNetCore.WebAPI.Models;
 
 namespace SkeletonDotNetCore.WebAPI.Helpers
 {
-    public class SkeletonAutoMapperProfile : Profile
+    public class AutoMapperProfile : Profile
     {
-        public SkeletonAutoMapperProfile()
+        public AutoMapperProfile()
         {
             CreateMap<CreateValueDTO, Value>();
             CreateMap<UpdateValueDTO, Value>();
