@@ -44,13 +44,13 @@ namespace SkeletonDotNetCore.WebAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                seeder.DevelopmentSeed().Wait();
+                seeder.DevelopmentSeed();
             }
             else
             {
                 app.UseHsts();
                 app.UseHttpsRedirection();
-                seeder.ProductionSeed().Wait();
+                seeder.ProductionSeed();
             }
             
             app.UseCors(config => config.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());

@@ -20,11 +20,6 @@ namespace SkeletonDotNetCore.WebAPI.Persistence
             _context.Values.Add(value);
         }
 
-        public void AddRange(IEnumerable<Value> values)
-        {
-            _context.Values.AddRange(values);
-        }
-
         public void Update(Value value)
         {
             _context.Values.Update(value);

@@ -9,35 +9,32 @@ namespace SkeletonDotNetCore.WebAPI.Persistence
 {
     public class Seeder : ISeeder
     {
-        private readonly IValueRepository _valueRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly DatabaseContext _context;
 
-        public Seeder(IValueRepository valueRepository, IUnitOfWork unitOfWork)
+        public Seeder(DatabaseContext context)
         {
-            _valueRepository = valueRepository;
-            _unitOfWork = unitOfWork;
+            _context = context;
         }
 
-        public async Task DevelopmentSeed()
+        public void DevelopmentSeed()
         {
-            await AddMockValues();
+            AddMockValues();
         }
 
-        public async Task ProductionSeed()
+        public void ProductionSeed()
         {
-            await Task.CompletedTask;
         }
 
-        private async Task AddMockValues()
+        private void AddMockValues()
         {
-            if (await _valueRepository.CountValues() == 0)
+            if (!_context.Values.Any())
             {
                 var valuesJsonData = System.IO.File.ReadAllText("Persistence/MockData/ValueData.json");
 
                 var values = JsonConvert.DeserializeObject<List<Value>>(valuesJsonData);
 
-                _valueRepository.AddRange(values);
-                await _unitOfWork.CompleteAsync();
+                _context.Values.AddRange(values);
+                _context.SaveChanges();
             }
         }
     }

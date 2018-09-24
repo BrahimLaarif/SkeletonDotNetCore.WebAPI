@@ -4,7 +4,7 @@ namespace SkeletonDotNetCore.WebAPI.Core
 {
     public interface ISeeder
     {
-        Task DevelopmentSeed();
-        Task ProductionSeed();
+        void DevelopmentSeed();
+        void ProductionSeed();
     }
 }

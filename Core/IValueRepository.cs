@@ -7,7 +7,6 @@ namespace SkeletonDotNetCore.WebAPI.Core
     public interface IValueRepository
     {
         void Add(Value value);
-        void AddRange(IEnumerable<Value> values);
         void Update(Value value);
         void Remove(Value value);
 
