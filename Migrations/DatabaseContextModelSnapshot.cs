@@ -8,8 +8,8 @@ using SkeletonDotNetCore.WebAPI.Data;
 
 namespace SkeletonDotNetCore.WebAPI.Migrations
 {
-    [DbContext(typeof(SkeletonDbContext))]
-    partial class SkeletonDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DatabaseContext))]
+    partial class DatabaseContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

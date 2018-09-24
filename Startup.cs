@@ -28,12 +28,13 @@ namespace SkeletonDotNetCore.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<SkeletonDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddCors();
             services.AddAutoMapper();
-            services.AddScoped<ISkeletonRepository, SkeletonRepository>();
+            services.AddScoped<IValueRepository, ValueRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<ISeeder, Seeder>();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

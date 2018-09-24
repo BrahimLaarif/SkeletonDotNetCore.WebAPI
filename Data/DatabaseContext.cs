@@ -3,11 +3,11 @@ using SkeletonDotNetCore.WebAPI.Models;
 
 namespace SkeletonDotNetCore.WebAPI.Data
 {
-    public class SkeletonDbContext : DbContext
+    public class DatabaseContext : DbContext
     {
         public DbSet<Value> Values { get; set; }
 
-        public SkeletonDbContext(DbContextOptions<SkeletonDbContext> options)
+        public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)
         {
         }

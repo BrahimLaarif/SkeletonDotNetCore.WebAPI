@@ -8,7 +8,7 @@ using SkeletonDotNetCore.WebAPI.Data;
 
 namespace SkeletonDotNetCore.WebAPI.Migrations
 {
-    [DbContext(typeof(SkeletonDbContext))]
+    [DbContext(typeof(DatabaseContext))]
     [Migration("20180923082820_AddValuesTable")]
     partial class AddValuesTable
     {

@@ -9,7 +9,7 @@ using SkeletonDotNetCore.WebAPI.Data;
 
 namespace SkeletonDotNetCore.WebAPI.Migrations
 {
-    [DbContext(typeof(SkeletonDbContext))]
+    [DbContext(typeof(DatabaseContext))]
     [Migration("20180923201616_AddDateCreatedColumnToValuesTable")]
     partial class AddDateCreatedColumnToValuesTable
     {
