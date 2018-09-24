@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SkeletonDotNetCore.WebAPI.Data;
+using SkeletonDotNetCore.WebAPI.Persistence;
 
 namespace SkeletonDotNetCore.WebAPI.Migrations
 {
@@ -19,7 +19,7 @@ namespace SkeletonDotNetCore.WebAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SkeletonDotNetCore.WebAPI.Models.Value", b =>
+            modelBuilder.Entity("SkeletonDotNetCore.WebAPI.Core.Models.Value", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

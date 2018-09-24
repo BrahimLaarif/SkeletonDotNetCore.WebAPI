@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SkeletonDotNetCore.WebAPI.Models;
+using SkeletonDotNetCore.WebAPI.Core;
+using SkeletonDotNetCore.WebAPI.Core.Models;
 
-namespace SkeletonDotNetCore.WebAPI.Data.Repositories
+namespace SkeletonDotNetCore.WebAPI.Persistence
 {
     public class ValueRepository : IValueRepository
     {

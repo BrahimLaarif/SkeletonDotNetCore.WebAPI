@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace SkeletonDotNetCore.WebAPI.Data.Seeds
+namespace SkeletonDotNetCore.WebAPI.Core
 {
     public interface ISeeder
     {

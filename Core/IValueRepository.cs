@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using SkeletonDotNetCore.WebAPI.Models;
+using SkeletonDotNetCore.WebAPI.Core.Models;
 
-namespace SkeletonDotNetCore.WebAPI.Data.Repositories
+namespace SkeletonDotNetCore.WebAPI.Core
 {
     public interface IValueRepository
     {

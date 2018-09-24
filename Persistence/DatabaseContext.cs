@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using SkeletonDotNetCore.WebAPI.Models;
+using SkeletonDotNetCore.WebAPI.Core.Models;
 
-namespace SkeletonDotNetCore.WebAPI.Data
+namespace SkeletonDotNetCore.WebAPI.Persistence
 {
     public class DatabaseContext : DbContext
     {

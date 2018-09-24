@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SkeletonDotNetCore.WebAPI.Models
+namespace SkeletonDotNetCore.WebAPI.Core.Models
 {
     [Table("Values")]
     public class Value

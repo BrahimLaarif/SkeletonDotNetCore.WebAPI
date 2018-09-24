@@ -12,9 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using SkeletonDotNetCore.WebAPI.Data;
-using SkeletonDotNetCore.WebAPI.Data.Repositories;
-using SkeletonDotNetCore.WebAPI.Data.Seeds;
+using SkeletonDotNetCore.WebAPI.Core;
+using SkeletonDotNetCore.WebAPI.Persistence;
 
 namespace SkeletonDotNetCore.WebAPI
 {

@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace SkeletonDotNetCore.WebAPI.Data
+namespace SkeletonDotNetCore.WebAPI.Core
 {
     public interface IUnitOfWork
     {

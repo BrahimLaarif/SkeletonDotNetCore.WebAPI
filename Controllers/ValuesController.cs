@@ -4,10 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using SkeletonDotNetCore.WebAPI.Data;
-using SkeletonDotNetCore.WebAPI.Data.Repositories;
+using SkeletonDotNetCore.WebAPI.Core;
+using SkeletonDotNetCore.WebAPI.Core.Models;
 using SkeletonDotNetCore.WebAPI.DTOs;
-using SkeletonDotNetCore.WebAPI.Models;
 
 namespace SkeletonDotNetCore.WebAPI.Controllers
 {

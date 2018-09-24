@@ -1,6 +1,6 @@
 using AutoMapper;
 using SkeletonDotNetCore.WebAPI.DTOs;
-using SkeletonDotNetCore.WebAPI.Models;
+using SkeletonDotNetCore.WebAPI.Core.Models;
 
 namespace SkeletonDotNetCore.WebAPI.Helpers
 {

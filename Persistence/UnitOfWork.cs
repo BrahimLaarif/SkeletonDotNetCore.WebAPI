@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
+using SkeletonDotNetCore.WebAPI.Core;
 
-namespace SkeletonDotNetCore.WebAPI.Data
+namespace SkeletonDotNetCore.WebAPI.Persistence
 {
     public class UnitOfWork : IUnitOfWork
     {
