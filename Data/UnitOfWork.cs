@@ -11,9 +11,9 @@ namespace SkeletonDotNetCore.WebAPI.Data
             _context = context;
         }
 
-        public async Task CompleteAsync()
+        public async Task<int> CompleteAsync()
         {
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
     }
 }

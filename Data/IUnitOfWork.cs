@@ -4,6 +4,6 @@ namespace SkeletonDotNetCore.WebAPI.Data
 {
     public interface IUnitOfWork
     {
-        Task CompleteAsync();
+        Task<int> CompleteAsync();
     }
 }
