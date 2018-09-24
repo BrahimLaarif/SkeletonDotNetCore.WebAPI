@@ -15,13 +15,13 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private readonly IValueRepository _repository;
+        private readonly IValueRepository _valueRepository;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
 
-        public ValuesController(IValueRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
+        public ValuesController(IValueRepository valueRepository, IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _repository = repository;
+            _valueRepository = valueRepository;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
@@ -30,7 +30,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var values = await _repository.GetValues();
+            var values = await _valueRepository.GetValues();
 
             return Ok(_mapper.Map<List<ValueDTO>>(values));
         }
@@ -39,7 +39,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
         [HttpGet("{id}", Name = nameof(Get))]
         public async Task<IActionResult> Get(int id)
         {
-            var value = await _repository.GetValue(id);
+            var value = await _valueRepository.GetValue(id);
 
             if (value == null)
             {
@@ -55,7 +55,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
         {
             var value = _mapper.Map<Value>(createValueDTO);
 
-            _repository.Add(value);
+            _valueRepository.Add(value);
             await _unitOfWork.CompleteAsync();
 
             return CreatedAtRoute(nameof(Get), new { id = value.Id }, _mapper.Map<ValueDTO>(value));
@@ -65,7 +65,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] UpdateValueDTO updateValueDTO)
         {
-            var value = await _repository.GetValue(id);
+            var value = await _valueRepository.GetValue(id);
 
             if (value == null)
             {
@@ -74,7 +74,7 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
 
             _mapper.Map<UpdateValueDTO, Value>(updateValueDTO, value);
 
-            _repository.Update(value);
+            _valueRepository.Update(value);
             await _unitOfWork.CompleteAsync();
 
             return NoContent();
@@ -84,14 +84,14 @@ namespace SkeletonDotNetCore.WebAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var value = await _repository.GetValue(id);
+            var value = await _valueRepository.GetValue(id);
 
             if (value == null)
             {
                 return NotFound();
             }
 
-            _repository.Remove(value);
+            _valueRepository.Remove(value);
             await _unitOfWork.CompleteAsync();
 
             return NoContent();
