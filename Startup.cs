@@ -48,8 +48,8 @@ namespace SkeletonDotNetCore.WebAPI
             }
             else
             {
-                app.UseHsts();
-                app.UseHttpsRedirection();
+                // app.UseHsts();
+                // app.UseHttpsRedirection();
                 seeder.ProductionSeed();
             }
             

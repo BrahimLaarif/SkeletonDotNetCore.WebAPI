@@ -28,7 +28,7 @@ A simple ASP.NET Core Web API application with:
     ```bash
     dotnet run
     ```
-    Now the application is listening on: https://localhost:5001 and http://localhost:5000
+    Now the application is listening on http://localhost:5000
 
 ## Endpoint List
 - GET /api/values
