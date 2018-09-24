@@ -1,7 +1,7 @@
 # ASP.NET Core Web API Skeleton
 
 A simple ASP.NET Core Web API application with:
-- Sqlite provider
+- Sqlite
 - Entity Framework Core
 - Data Seeder
 - Repository design pattern
