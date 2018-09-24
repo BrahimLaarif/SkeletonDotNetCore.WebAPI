@@ -34,7 +34,9 @@ A simple ASP.NET Core Web API application with:
 - GET /api/values
 - GET /api/values/:id
 - POST /api/values
-    Request body example :
+    ```
+        Request body example :
+    ```
     ```bash
     {
         name: "New value"
