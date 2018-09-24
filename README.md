@@ -16,9 +16,9 @@ A simple ASP.NET Core Web API application with:
     git clone https://github.com/BrahimLaarif/SkeletonDotNetCore.WebAPI.git
     cd SkeletonDotNetCore.WebAPI
     ```
-3. Install the dependencies
+3. Build the project and all of its dependencies.
     ```bash
-    dotnet restore
+    dotnet build
     ```
 4. Run the migrations
     ```bash
@@ -28,6 +28,7 @@ A simple ASP.NET Core Web API application with:
     ```bash
     dotnet run
     ```
+    Now the application is listening on: https://localhost:5001 and http://localhost:5000
 
 ## Endpoint List
 - GET /api/values
