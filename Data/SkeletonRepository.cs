@@ -20,9 +20,19 @@ namespace SkeletonDotNetCore.WebAPI.Data
             _context.Add(entity);
         }
 
-        public void AddRange<T>(List<T> entities) where T : class
+        public void AddRange<T>(IEnumerable<T> entities) where T : class
         {
             _context.AddRange(entities);
+        }
+
+        public void Update<T>(T entity) where T : class
+        {
+            _context.Update(entity);
+        }
+
+        public void UpdateRange<T>(IEnumerable<T> entities) where T : class
+        {
+            _context.UpdateRange(entities);
         }
 
         public void Remove<T>(T entity) where T : class
@@ -30,9 +40,9 @@ namespace SkeletonDotNetCore.WebAPI.Data
             _context.Remove(entity);
         }
 
-        public void Update<T>(T entity) where T : class
+        public void RemoveRange<T>(IEnumerable<T> entities) where T : class
         {
-            _context.Update(entity);
+            _context.RemoveRange(entities);
         }
 
         public async Task<int> SaveAll()
